@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
+    id 'com.chaquo.python'
 }
 
 android {
@@ -9,12 +11,36 @@ android {
 
     defaultConfig {
         applicationId "com.example.financialmobileapplication"
-        minSdk 25
+        minSdk 21
         targetSdk 33
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
+        python {
+            buildPython "C:/Users/sanmo/AppData/Local/Programs/Python/Python39/python.exe"
+        }
+        sourceSets {
+            main {
+                python.srcDir "src/main/python"
+            }
+        }
+
+            python {
+                pip {
+                    // A requirement specifier, with or without a version number:
+                    install("numpy")
+                    install("scikit-learn")
+                    install("pandas")
+                    install("joblib")
+
+
+                }
+            }
+
     }
 
     buildTypes {
