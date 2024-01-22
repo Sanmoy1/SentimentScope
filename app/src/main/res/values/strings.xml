@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Financial Mobile Application</string>
+    <string name="sentiment_analysis">Sentiment Analysis</string>
 </resources>

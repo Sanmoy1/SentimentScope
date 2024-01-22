@@ -124,6 +124,7 @@
         android:id="@+id/caluclateButton"
         android:layout_marginTop="15dp"
         android:text="Calculate"
+        android:textColor="@color/white"
         android:textSize="19sp"
         android:backgroundTint="@color/black"
         />

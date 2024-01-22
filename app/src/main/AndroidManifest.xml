@@ -25,6 +25,7 @@
         </activity>
         <activity android:name=".WebViewActivity"/>
         <activity android:name=".predict_loan_page"/>
+        <activity android:name=".Sentiment_analysis"/>
     </application>
 
 </manifest>
