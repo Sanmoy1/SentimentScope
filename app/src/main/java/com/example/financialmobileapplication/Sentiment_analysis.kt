@@ -49,7 +49,27 @@ class Sentiment_analysis:AppCompatActivity() {
             // Iterate through the result list and append to the StringBuilder
             for (item in resultList) {
                 val part = item.asList()[0].toString()
-                val sentiment = item.asList()[1].toString().capitalize()
+                var sentiment = item.asList()[1].toString().capitalize()
+
+                if ((part.contains("not") || part.contains("n't")) &&
+                    (part.contains("decrease") || part.contains("decreasing") ||
+                            part.contains("improve") || part.contains("improving") ||
+                            part.contains("increase") || part.contains("increasing") ||
+                            part.contains("better") || part.contains("worse"))) {
+
+                    if ((part.contains("not") || part.contains("n't")) &&
+                        sentiment == "Positive" &&
+                        (part.contains("decrease") || part.contains("decreasing") ||
+                                part.contains("worse"))) {
+                        sentiment = "Negative"
+                    } else if ((part.contains("not") || part.contains("n't")) &&
+                        sentiment == "Negative" &&
+                        (part.contains("increase") || part.contains("increasing") ||
+                                part.contains("improve") || part.contains("improving") ||
+                                part.contains("better"))) {
+                        sentiment = "Positive"
+                    }
+                }
                 resultTextBuilder.append("$part - $sentiment\n")
             }
 
